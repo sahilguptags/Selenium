@@ -1,0 +1,41 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Dragdrop {
+    public static void main(String[] args) {
+        
+        System.setProperty("webdriver.chrome.driver", "C:/Users/Sahil Gupta/Downloads/chromedriver_win32/chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver();
+
+        
+        // Maximize the Chrome Browser Window
+        driver.manage().window().maximize();
+
+        // Navigate to webpage
+        driver.get("https://jqueryui.com/droppable/");
+
+        // Switch to iFrame
+        WebElement iframe = driver.findElement(By.className("demo-frame"));
+        driver.switchTo().frame(iframe);
+
+        // Locate the Dragable or Target
+        WebElement target = driver.findElement(By.id("draggable"));
+
+        // Locate Droppable or Destination
+        WebElement destination = driver.findElement(By.id("droppable"));
+
+        // Creating Action Class objext by passing webdriver as argument
+        Actions act = new Actions(driver);
+        act.dragAndDrop(target, destination);
+
+        
+
+
+
+
+
+        
+    }
+}
